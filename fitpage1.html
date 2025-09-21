@@ -79,23 +79,28 @@
     <div id="result"></div>
    
   </div>
-  <script>
+ <script>
     function checkSize() {
-      let clothing = document.getElementById("clothing").value;
-      let height = Number(document.getElementById("height").value);
-      let weight = Number(document.getElementById("weight").value);
+      var clothing = document.getElementById("clothing").value;
+      var height = document.getElementById("height").value;
+      var weight = document.getElementById("weight").value;
 
-      if (!height || !weight) {
-        document.getElementById("result").innerText = "Please enter height and weight.";
+      var result = document.getElementById("result");
+
+      if (height == "" || weight == "") {
+        result.innerHTML = "Please enter both height and weight.";
         return;
       }
 
-      let size = "M";
-      if (weight < 55) size = "S";
-      else if (weight > 80) size = "L";
+      var size = "M";
 
-      document.getElementById("result").innerText =
-        `For a height ${height}cm, weight ${weight}kg, your ${clothing} size is: ${size}`;
+      if (weight < 55) {
+        size = "S";
+      } else if (weight > 80) {
+        size = "L";
+      }
+
+      result.innerHTML = "Your " + clothing + " size is: " + size;
     }
   </script>
   </body>
